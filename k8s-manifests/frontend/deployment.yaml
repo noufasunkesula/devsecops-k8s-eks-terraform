@@ -6,7 +6,7 @@ metadata:
   labels:
     role: frontend
     env: demo
-spec: 
+spec:
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -14,21 +14,21 @@ spec:
       maxSurge: 1
       maxUnavailable: 25%
   selector:
-    matchLabels: 
+    matchLabels:
       role: frontend
   template:
     metadata:
       labels:
         role: frontend
-    spec: 
+    spec:
       imagePullSecrets:
-      - name: ecr-registry-secret
+        - name: k8s-noufa-ecr-secret
       containers:
-      - name: frontend
-        image: 244736874175.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
-        imagePullPolicy: Always
-        env:
-          - name: REACT_APP_BACKEND_URL
-            value: "http://api.dovz.shop/api/notes/"
-        ports:
-        - containerPort: 3000
+        - name: frontend
+          image: 244736874175.dkr.ecr.ap-south-1.amazonaws.com/frontend:latest
+          imagePullPolicy: Always
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: "http://api.dovz.shop/api/notes/"
+          ports:
+            - containerPort: 3000

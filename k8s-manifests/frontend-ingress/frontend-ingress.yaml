@@ -2,7 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend-ingress
+<<<<<<< HEAD
   namespace: k8s-noufa
+=======
+  namespace: three-tier
+>>>>>>> 6b649c652bfd80d29a2015ee5471aab600141031
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip

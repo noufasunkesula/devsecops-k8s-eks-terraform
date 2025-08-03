@@ -1,7 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
+<<<<<<< HEAD
   namespace: k8s-noufa
+=======
+  namespace: three-tier
+>>>>>>> 6b649c652bfd80d29a2015ee5471aab600141031
   name: postgres
 spec: 
   replicas: 1
