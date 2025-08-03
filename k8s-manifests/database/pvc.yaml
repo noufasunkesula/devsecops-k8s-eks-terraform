@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-volume-claim
-  namespace: three-tier
+  namespace: k8s-noufa
 spec: 
   accessModes:  
     - ReadWriteOnce

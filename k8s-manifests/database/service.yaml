@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: three-tier
+  namespace: k8s-noufa
   name: postgres-svc
 spec:
   selector:

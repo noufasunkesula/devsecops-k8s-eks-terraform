@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: postgres-pv
-  namespace: three-tier
+  namespace: k8s-noufa
 spec:
   capacity: 
     storage: 1Gi
