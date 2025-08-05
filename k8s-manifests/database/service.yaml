@@ -1,18 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-<<<<<<< HEAD
-  namespace: k8s-noufa
-=======
-  namespace: three-tier
->>>>>>> 6b649c652bfd80d29a2015ee5471aab600141031
   name: postgres-svc
+  namespace: k8s-noufa
 spec:
   selector:
     app: postgres
   ports:
-  - name: postgres
-    protocol: TCP
-    port: 5432
-    targetPort: 5432
+    - name: postgres
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
   type: LoadBalancer
+
