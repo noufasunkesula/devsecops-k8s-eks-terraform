@@ -1,5 +1,5 @@
 # DevSecOps 3-Tier Application on AWS EKS with GitOps
-Production-ready DevSecOps infrastructure implementing modern cloud-native practices with automated CI/CD pipelines on AWS EKS. The platform integrates Terraform for Infrastructure as Code, Jenkins for continuous integration, ArgoCD for GitOps delivery, and comprehensive monitoring with Prometheus/Grafana. Features enterprise-grade security scanning, automated quality gates, and zero-downtime deployment strategies for scalable application delivery. Demonstrates advanced DevOps engineering capabilities with full automation from code commit to production deployment.
+Production-ready DevSecOps infrastructure implementing modern cloud-native practices with automated CI/CD pipelines on AWS EKS. The platform integrates Terraform for Infrastructure as Code, Jenkins for continuous integration, ArgoCD for GitOps delivery, and comprehensive monitoring with Prometheus/Grafana. Features enterprise-grade security scanning, automated quality gates, and zero-downtime deployment strategies for scalable application delivery. Demonstrates advanced DevSecOps engineering capabilities with full automation from code commit to production deployment.
 > Complete DevSecOps infrastructure with AWS EKS, Jenkins CI/CD, ArgoCD GitOps, and monitoring stack for automated application delivery.
 
 <p align="center">
