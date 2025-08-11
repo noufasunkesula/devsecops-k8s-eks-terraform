@@ -88,7 +88,7 @@ Production-ready DevOps infrastructure implementing modern cloud-native practice
   <img src="07-architecture/k8s-architecture.png" alt="Architecture Diagram" width="800"/>
 </p>
 
-## Author
+## Reach Out At!
 
 Noufa Sunkesula
 
