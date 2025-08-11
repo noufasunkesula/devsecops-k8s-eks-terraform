@@ -1,0 +1,131 @@
+pipeline {
+    agent any 
+    tools {
+        jdk 'jdk'
+        nodejs 'nodejs'
+    }
+    environment  {
+        SCANNER_HOME = tool 'sonar-scanner'
+        AWS_ACCOUNT_ID = '244736874175'
+        AWS_ECR_REPO_NAME = 'ecr-repo-frontend' 
+        AWS_DEFAULT_REGION = 'ap-south-1'
+        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/"
+    }
+    stages {
+        stage('Cleaning Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage('Checkout from Git') {
+            steps {
+                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/noufasunkesula/devsecops-k8s-eks-terraform.git'
+            }
+        }
+
+        stage('Sonarqube Analysis') {
+            steps {
+                dir('app-code-client/backend') {
+                    withSonarQubeEnv('sonar-server') {
+                        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                            sh """
+                                ${SCANNER_HOME}/bin/sonar-scanner \
+                                -Dsonar.projectKey=backend \
+                                -Dsonar.sources=. \
+                                -Dsonar.host.url=http://3.111.254.15:9000 \
+                                -Dsonar.login=${SONAR_TOKEN}
+                            """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Quality Check') {
+            steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                }
+            }
+        }
+
+        stage('OWASP Dependency-Check Scan') {
+            steps {
+                dir('app-code-client/frontend/notes-frontend') {
+                    dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                }
+            }
+        }
+
+        stage('Trivy File Scan') {
+            steps {
+                dir('app-code-client/frontend/notes-frontend') {
+                    sh 'trivy fs . > trivyfs.txt'
+                }
+            }
+        }
+
+        stage("Docker Image Build") {
+            steps {
+                script {
+                    dir('app-code-client/frontend/notes-frontend') {
+                        sh 'docker system prune -f'
+                        sh 'docker container prune -f'
+                        sh "docker build -t ${AWS_ECR_REPO_NAME} ."
+                    }
+                }
+            }
+        }
+
+        stage("ECR Image Pushing") {
+            steps {
+                script {
+                    sh "aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${REPOSITORY_URI}"
+                    sh "docker tag ${AWS_ECR_REPO_NAME} ${REPOSITORY_URI}${AWS_ECR_REPO_NAME}:${BUILD_NUMBER}"
+                    sh "docker push ${REPOSITORY_URI}${AWS_ECR_REPO_NAME}:${BUILD_NUMBER}"
+                }
+            }
+        }
+
+        stage("TRIVY Image Scan") {
+            steps {
+                sh "trivy image ${REPOSITORY_URI}${AWS_ECR_REPO_NAME}:${BUILD_NUMBER} > trivyimage.txt"
+            }
+        }
+
+        stage('Checkout Code Again') {
+            steps {
+                git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/noufasunkesula/devsecops-k8s-eks-terraform.git'
+            }
+        }
+
+        stage('Update Deployment File') {
+            environment {
+                GIT_REPO_NAME = "devsecops-k8s-eks-terraform"
+                GIT_USER_NAME = "noufasunkesula"
+            }
+            steps {
+                dir('k8s-manifests/frontend') {
+                    withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+                        sh '''
+                            echo "Checking deployment.yaml presence:"
+                            ls -l
+                        '''
+                        sh '''
+                            git config user.email "noufasunkesula@gmail.com"
+                            git config user.name "noufasunkesula"
+                            imageTag=$(grep -oP '(?<=frontend:)[^ ]+' deployment.yaml || echo "latest")
+                            echo "Current image tag: $imageTag"
+                            sed -i "s/${imageTag}/${BUILD_NUMBER}/g" deployment.yaml
+                            git add deployment.yaml
+                            git commit -m "Update deployment Image to version ${BUILD_NUMBER}" || echo "Nothing to commit"
+                            git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}

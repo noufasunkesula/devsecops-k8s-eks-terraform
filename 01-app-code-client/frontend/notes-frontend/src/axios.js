@@ -1,8 +1,7 @@
-// src/axios.js
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API || 'http://localhost:8000',
+  baseURL: 'https://api.dovz.online', // 🟢 Use actual backend subdomain
 });
 
 instance.interceptors.request.use((config) => {
@@ -12,3 +11,4 @@ instance.interceptors.request.use((config) => {
 });
 
 export default instance;
+

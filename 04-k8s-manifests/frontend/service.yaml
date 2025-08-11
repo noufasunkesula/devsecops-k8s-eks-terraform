@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: k8s-noufa
+spec:
+  selector:
+    role: frontend
+  ports:
+    - port: 80            # ✅ expose port 80 for Ingress to talk to
+      targetPort: 3000    # ✅ forwards to container's port 3000
+      protocol: TCP
+  type: ClusterIP
+
