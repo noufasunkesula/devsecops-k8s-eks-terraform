@@ -12,41 +12,40 @@ Production-ready DevOps infrastructure implementing modern cloud-native practice
 <h3 align="center">AWS Services Used</h3>
 
 <p align="center">
-  <img src="05-icons-k8s/ec2.png" alt="EC2" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/virtual-private-cloud.png" alt="VPC" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Elastic Container Registry.png" alt="ECR" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/EKS Cloud.png" alt="EKS" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Route 53.png" alt="Route 53" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Elastic Load Balancing.png" alt="LB" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Identity and Access Management.png" alt="IAM" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Simple Storage Service.png" alt="S3" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/DynamoDB.png" alt="DynamoDB" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/ec2.png" alt="EC2" title="Amazon EC2" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/virtual-private-cloud.png" alt="VPC" title="Amazon VPC" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Elastic Container Registry.png" alt="ECR" title="Amazon Elastic Container Registry (ECR)" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/EKS Cloud.png" alt="EKS" title="Amazon Elastic Kubernetes Service (EKS)" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Route 53.png" alt="Route 53" title="Amazon Route 53" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Elastic Load Balancing.png" alt="LB" title="Elastic Load Balancing (ELB)" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Identity and Access Management.png" alt="IAM" title="AWS Identity and Access Management (IAM)" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Simple Storage Service.png" alt="S3" title="Amazon Simple Storage Service (S3)" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/DynamoDB.png" alt="DynamoDB" title="Amazon DynamoDB" width="60" style="margin:10px"/>
 </p>
 
-
-<h3 align="center">Tools & Technologies Used </h3>
+<h3 align="center">Tools & Technologies Used</h3>
 
 <!-- Row 2 -->
 <p align="center">
-  <img src="05-icons-k8s/docker.png" alt="Docker" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/terraform.jpg" alt="Terraform" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/jenkins.png" alt="Jenkins" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/sonarqube.png" alt="SonarQube" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/trivy.png" alt="Trivy" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/owasp.png" alt="OWASP" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Kubernetes.png" alt="Kubernetes" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/docker.png" alt="Docker" title="Docker" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/terraform.jpg" alt="Terraform" title="Terraform" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/jenkins.png" alt="Jenkins" title="Jenkins" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/sonarqube.png" alt="SonarQube" title="SonarQube" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/trivy.png" alt="Trivy" title="Trivy Security Scanner" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/owasp.png" alt="OWASP" title="OWASP Dependency Check" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Kubernetes.png" alt="Kubernetes" title="Kubernetes" width="60" style="margin:10px"/>
 </p>
 
 <!-- Row 3 -->
 <p align="center">
-  <img src="05-icons-k8s/Helm.png" alt="Helm" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Argo CD.png" alt="Argo CD" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Grafana.png" alt="Grafana" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Prometheus.png" alt="Prometheus" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/PostgresSQL.png" alt="Postgres" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/Django.png" alt="Django" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/react.png" alt="React" width="60" style="margin:10px"/>
-  <img src="05-icons-k8s/github.png" alt="GitHub" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Helm.png" alt="Helm" title="Helm" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Argo CD.png" alt="Argo CD" title="Argo CD" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Grafana.png" alt="Grafana" title="Grafana" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Prometheus.png" alt="Prometheus" title="Prometheus" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/PostgresSQL.png" alt="Postgres" title="PostgreSQL" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/Django.png" alt="Django" title="Django Framework" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/react.png" alt="React" title="React.js" width="60" style="margin:10px"/>
+  <img src="05-icons-k8s/github.png" alt="GitHub" title="GitHub" width="60" style="margin:10px"/>
 </p>
 
 ## Infrastructure
