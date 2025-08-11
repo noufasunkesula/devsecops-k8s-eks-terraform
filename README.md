@@ -1,4 +1,4 @@
-## AWS EKS GitOps Platform
+# DevSecOps 3-Tier Application on AWS EKS with GitOps
 Production-ready DevOps infrastructure implementing modern cloud-native practices with automated CI/CD pipelines on AWS EKS. The platform integrates Terraform for Infrastructure as Code, Jenkins for continuous integration, ArgoCD for GitOps delivery, and comprehensive monitoring with Prometheus/Grafana. Features enterprise-grade security scanning, automated quality gates, and zero-downtime deployment strategies for scalable application delivery. Demonstrates advanced DevOps engineering capabilities with full automation from code commit to production deployment.
 > Complete DevOps infrastructure with AWS EKS, Jenkins CI/CD, ArgoCD GitOps, and monitoring stack for automated application delivery.
 
@@ -87,4 +87,12 @@ Production-ready DevOps infrastructure implementing modern cloud-native practice
 <p align="center">
   <img src="07-architecture/k8s-architecture.png" alt="Architecture Diagram" width="800"/>
 </p>
+
+## Author
+
+Noufa Sunkesula
+
+Contact: +91 8106859686
+
+Mail ID: noufasunkesula@gmail.com
 
